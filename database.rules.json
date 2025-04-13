@@ -1,0 +1,48 @@
+{
+  "rules": {
+    ".read": true,
+    ".write": true,
+    "organizations": {
+      ".read": true,
+      ".write": true,
+      "$orgId": {
+        ".read": true,
+        ".write": true
+      }
+    },
+    "donations": {
+      ".read": true,
+      ".write": true,
+      ".indexOn": ["donorId", "organizationId", "status", "timestamp"],
+      "$donationId": {
+        ".read": true,
+        ".write": true,
+        "items": {
+          ".read": true,
+          ".write": true,
+          "$itemId": {
+            ".read": true,
+            ".write": true
+          }
+        }
+      }
+    },
+    "requests": {
+      ".read": true,
+      ".write": true,
+      ".indexOn": ["organizationId", "status", "createdAt", "category"],
+      "$requestId": {
+        ".read": true,
+        ".write": true,
+        "items": {
+          ".read": true,
+          ".write": true,
+          "$itemId": {
+            ".read": true,
+            ".write": true
+          }
+        }
+      }
+    }
+  }
+} 
